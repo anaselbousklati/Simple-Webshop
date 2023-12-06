@@ -11,8 +11,13 @@ document.addEventListener("DOMContentLoaded", function () {
     ];
 
     const allProductsContainer = document.getElementById('all-products');
-    const body = document.body;
-    const darkModeToggle = document.getElementById('darkModeToggle');
+    const cartItemsContainer = document.getElementById('cart-items');
+
+    function addToCart(productData) {
+        const cartItem = document.createElement('li');
+        cartItem.textContent = `${productData.title} - ${productData.price}`;
+        cartItemsContainer.appendChild(cartItem);
+    }
 
     function createProductElement(productData) {
         const productContainer = document.createElement('div');
@@ -32,10 +37,13 @@ document.addEventListener("DOMContentLoaded", function () {
         productPrice.classList.add('product-price');
         productPrice.textContent = productData.price;
 
-        const buyNowButton = document.createElement('a');
+        const buyNowButton = document.createElement('button');
         buyNowButton.classList.add('product-btn');
-        buyNowButton.href = '#';
         buyNowButton.textContent = 'Koop nu';
+
+        buyNowButton.addEventListener('click', function () {
+            addToCart(productData);
+        });
 
         productInfoContainer.appendChild(productTitle);
         productInfoContainer.appendChild(productPrice);
@@ -48,13 +56,4 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     productsData.forEach(createProductElement);
-
-    darkModeToggle.addEventListener('click', function () {
-        body.classList.toggle('light-mode');
-
-        const elementsToToggle = document.querySelectorAll('.product, .product-title, .product-price');
-        elementsToToggle.forEach(element => {
-            element.classList.toggle('light-mode');
-        });
-    });
 });
