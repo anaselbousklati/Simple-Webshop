@@ -1,4 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
+    if (!sessionStorage.getItem('cartItems')) {
+        sessionStorage.setItem('cartItems', JSON.stringify([]));
+    }
+
     const productsData = [
         { imageSrc: "AirPod 2nd Gen.jpg", title: "AirPod 2nd Gen", price: "€129" },
         { imageSrc: "apple-watch-pcq.jpg", title: "Apple Watch", price: "€299" },
@@ -11,12 +15,38 @@ document.addEventListener("DOMContentLoaded", function () {
     ];
 
     const allProductsContainer = document.getElementById('all-products');
-    const cartItemsContainer = document.getElementById('cart-items');
 
     function addToCart(productData) {
-        const cartItem = document.createElement('li');
-        cartItem.textContent = `${productData.title} - ${productData.price}`;
-        cartItemsContainer.appendChild(cartItem);
+        const cartItems = JSON.parse(sessionStorage.getItem('cartItems'));
+
+        const existingCartItem = cartItems.find(item => item.title === productData.title);
+
+        if (existingCartItem) {
+            existingCartItem.quantity += 1;
+        } else {
+            cartItems.push({
+                title: productData.title,
+                price: productData.price,
+                quantity: 1
+            });
+        }
+
+        sessionStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+        updateTotalPrice();
+    }
+
+    function updateTotalPrice() {
+        const cartItems = JSON.parse(sessionStorage.getItem('cartItems')) || [];
+        let totalPrice = 0;
+
+        cartItems.forEach(item => {
+            const price = parseFloat(item.price.slice(1));
+            const quantity = item.quantity || 0;
+            totalPrice += price * quantity;
+        });
+
+        document.getElementById('total-price').textContent = `€${totalPrice.toFixed(2)}`;
     }
 
     function createProductElement(productData) {

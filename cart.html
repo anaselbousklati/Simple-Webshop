@@ -2,39 +2,44 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Webshop</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Webshop</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
 
 <body>
-	<nav>
-		<div class="navbar animate__bounceIn">
-			<div class="logo">Logo</div>
-			<div class="nav-elements">
-				<a href="index.html">Start</a>
-				<a href="producten.html">Producten</a>
-				<a href="contact.html">Contact</a>
-			</div>
-		</div>
-	</nav>
-	<section class="products">
-		<div class="all-products animate__bounceIn" id="all-products">
-		</div>
-	</section>
-	<footer>
-		<div class="footer-content animate__bounceIn">
-			<div class="footer-logo">Logo</div>
-			<div class="footer-social">
-				<a href="#" target="_blank">Facebook</a>
-				<a href="#" target="_blank">Twitter</a>
-				<a href="#" target="_blank">Instagram</a>
-			</div>
-		</div>
-	</footer>
-	<script src="script.js"></script>
+    <nav>
+        <div class="navbar animate__bounceIn">
+            <div class="logo">Logo</div>
+            <div class="nav-elements">
+                <a href="index.html">Start</a>
+                <a href="producten.html">Producten</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <a href="cart.html"><img class="imglogo" src="cart.png" alt=""></a>
+        </div>
+    </nav>
+    <div class="animate__bounceIn" id="cart-items">
+
+    </div>
+
+    <div class="animate__bounceIn" id="checkout">
+        <h2>Totaal: <span id="total-price">€0</span></h2>
+        <a href="index.html"><button id="checkout-button">Afrekenen</button></a>
+    </div>
+    <footer class="animate__bounceIn">
+        <div class="footer-content">
+            <div class="footer-logo">Logo</div>
+            <div class="footer-social">
+                <a href="#" target="_blank">Facebook</a>
+                <a href="#" target="_blank">Twitter</a>
+                <a href="#" target="_blank">Instagram</a>
+            </div>
+        </div>
+    </footer>
+    <script src="cart.js"></script>
 </body>
 
 </html>
