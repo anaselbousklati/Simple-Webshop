@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Webshop</title>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+</head>
+
+<body class="animate__bounceIn">
+	<section>
+		<div class="circle">
+			asdasd
+		</div>
+		<nav>
+			<div class="navbar">
+				<div class="logo">ElectroTech</div>
+				<div class="nav-elements">
+					<a href="/html/index.html">Start</a>
+					<a href="/html/producten.html">Producten</a>
+					<a href="/html/contact.html">Contact</a>
+				</div>
+				<a href="/cart.html"><img class="imglogo" src="/img/cart.png" alt=""></a>
+			</div>
+		</nav>
+
+		<div class="content">
+			<div class="textbox">
+				<h2>It's not just Tech <br>It's the <span>Future</span></h2>
+				<p>Technology moves at a relentlessly fast pace in the modern world. It can sometimes feel like every single day there are new technologies and innovations that will change our futures forever.
+					We <span>ElectroTech</span>, will always give you the best quality and new tech that's available,
+				</p>
+				<a href="/html/producten.html">Producten</a>
+			</div>
+
+			<div class="imgbox">
+				<img src="/img/thumb0.png" class="phone" alt="thumb 0">
+			</div>
+		</div>
+		<ul class="thumb">
+			<li><img src="/img/thumb0.png" alt="thumb 0" onclick="imgSlider('/img/thumb0.png')"></li>
+			<li><img src="/img/thumb2.png" alt="thumb 2" onclick="imgSlider('/img/thumb2.png')"></li>
+			<li><img src="/img/thumb3.png" alt="thumb 4" onclick="imgSlider('/img/thumb3.png')"></li>
+		</ul>
+
+		<ul class="sci">
+
+		</ul>
+	</section>
+	<div id="achter"></div>
+	<footer>
+		<div class="footer-content">
+			<div class="footer-logo">ElectroTech</div>
+			<div class="footer-social">
+				<a href="#" target="_blank">Facebook</a>
+				<a href="#" target="_blank">Twitter</a>
+				<a href="#" target="_blank">Instagram</a>
+			</div>
+		</div>
+	</footer>
+
+	<script>
+		function imgSlider(anything) {
+			document.querySelector('.phone').src = anything;
+		}
+	</script>
+	<script src="/js/particles.min.js"></script>
+	<script src="/js/custom.js"></script>
+	<script src="/js/script.js"></script>
+</body>
+</html>
